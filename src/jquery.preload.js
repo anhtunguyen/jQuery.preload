@@ -92,10 +92,14 @@
 				preload(next, part, callback);
 
 			};
-
-			// Loop sources to preload
+			
+			//Unique images
+			sources = $.grep(sources, function(v, k){
+		                return $.inArray(v ,sources) === k;
+		        });
+		        
+		        // Loop sources to preload
 			var image;
-
 			for (var i = 0; i < sources.length; i++) {
 
 				image = new Image();
